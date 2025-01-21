@@ -1,2 +1,3 @@
-# doctor-finder
-Find BD doctors by describing disease symptoms and location
+# doctor_finder
+
+A new Flutter project.
