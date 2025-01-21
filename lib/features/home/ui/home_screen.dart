@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
             label: 'Find a doc',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.medical_services),
+            icon: Icon(Icons.list),
             label: 'Screen 2',
           ),
           BottomNavigationBarItem(

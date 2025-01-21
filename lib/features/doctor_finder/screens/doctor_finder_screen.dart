@@ -32,43 +32,46 @@ class _DoctorFinderScreenState extends ConsumerState<DoctorFinderScreen> {
 
     final theme = Theme.of(context);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Doctor Finder',
-          style: TextStyle(color: Colors.white),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'Doctor Finder',
+            style: TextStyle(color: Colors.white),
+          ),
+          backgroundColor: theme.primaryColor,
         ),
-        backgroundColor: theme.primaryColor,
-      ),
-      body: ListView(
-        children: [
-          OrionDoctorSearchCard(
-            controller: _searchController,
-            onSearchPressed: _handleSearch,
-          ),
-          doctorsAsync.when(
-            loading: () => const Padding(
-              padding: EdgeInsets.all(16),
-              child: Center(
-                child: CircularProgressIndicator(),
+        body: ListView(
+          children: [
+            OrionDoctorSearchCard(
+              controller: _searchController,
+              onSearchPressed: _handleSearch,
+            ),
+            doctorsAsync.when(
+              loading: () => const Padding(
+                padding: EdgeInsets.all(16),
+                child: Center(
+                  child: CircularProgressIndicator(),
+                ),
+              ),
+              error: (error, stackTrace) => Padding(
+                padding: const EdgeInsets.all(16),
+                child: Text(
+                  'Error: ${error.toString()}',
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: Colors.red,
+                      ),
+                ),
+              ),
+              data: (doctors) => Column(
+                children: doctors
+                    .map((doctor) => OrionDoctorListItemCard(doctor: doctor))
+                    .toList(),
               ),
             ),
-            error: (error, stackTrace) => Padding(
-              padding: const EdgeInsets.all(16),
-              child: Text(
-                'Error: ${error.toString()}',
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: Colors.red,
-                    ),
-              ),
-            ),
-            data: (doctors) => Column(
-              children: doctors
-                  .map((doctor) => OrionDoctorListItemCard(doctor: doctor))
-                  .toList(),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
