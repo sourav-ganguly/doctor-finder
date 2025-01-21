@@ -1,5 +1,5 @@
+import 'package:doctor_finder/features/doctor_finder/screens/doctor_finder_screen.dart';
 import 'package:flutter/material.dart';
-import '../../sample_list/ui/sample_list_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,7 +12,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = [
-    const SampleListScreen(),
+    const DoctorFinderScreen(),
     const Center(child: Text('Screen 2')),
     const Center(child: Text('Screen 3')),
   ];
@@ -26,8 +26,8 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: (index) => setState(() => _currentIndex = index),
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.list),
-            label: 'Sample List',
+            icon: Icon(Icons.medical_services),
+            label: 'Find a doc',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.medical_services),
