@@ -6,16 +6,16 @@ final doctorSearchProvider = StateProvider<String>((ref) => '');
 
 final doctorListProvider = FutureProvider.autoDispose
     .family<List<SampleDoctor>, String>((ref, query) async {
-  // Simulate network delay
+  // If query is empty, return empty list immediately
+  if (query.trim().isEmpty) {
+    return [];
+  }
+
+  // Simulate network delay only for actual searches
   await Future.delayed(const Duration(seconds: 2));
 
   // Get sample doctors
   final doctors = SampleDoctor.getSampleDoctors();
-
-  // If query is empty, return all doctors
-  if (query.trim().isEmpty) {
-    return doctors;
-  }
 
   // Filter doctors based on query
   return doctors.where((doctor) {
