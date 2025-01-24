@@ -1,8 +1,17 @@
+import 'package:doctor_finder/features/demo_screen/screens/demo_screen.dart';
 import 'package:doctor_finder/features/doctor_finder/screens/doctor_finder_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  static void open(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => const HomeScreen(),
+      ),
+    );
+  }
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -14,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _screens = [
     const DoctorFinderScreen(),
     const Center(child: Text('Screen 2')),
-    const Center(child: Text('Screen 3')),
+    const DemoScreen(),
   ];
 
   @override
@@ -35,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Screen 3',
+            label: 'Demo',
           ),
         ],
       ),

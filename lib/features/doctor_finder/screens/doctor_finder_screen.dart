@@ -22,6 +22,7 @@ class _DoctorFinderScreenState extends ConsumerState<DoctorFinderScreen> {
   }
 
   void _handleSearch() {
+    FocusScope.of(context).unfocus();
     ref.read(doctorSearchProvider.notifier).state = _searchController.text;
   }
 
