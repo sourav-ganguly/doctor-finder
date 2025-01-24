@@ -29,16 +29,19 @@ class ButtonDemoScreen extends StatelessWidget {
               large: OrionPrimaryButton(
                 label: 'Large',
                 variant: ButtonSizeVariant.large,
+                icon: Icons.delete,
                 onPressed: () {},
               ),
               medium: OrionPrimaryButton(
                 label: 'Medium',
                 variant: ButtonSizeVariant.medium,
+                icon: Icons.chevron_right,
                 onPressed: () {},
               ),
               small: OrionPrimaryButton(
                 label: 'Small',
                 variant: ButtonSizeVariant.small,
+                icon: Icons.star,
                 onPressed: () {},
               ),
             ),
@@ -48,16 +51,19 @@ class ButtonDemoScreen extends StatelessWidget {
               large: OrionSecondaryButton(
                 label: 'Large',
                 variant: ButtonSizeVariant.large,
+                icon: Icons.search,
                 onPressed: () {},
               ),
               medium: OrionSecondaryButton(
                 label: 'Medium',
                 variant: ButtonSizeVariant.medium,
+                icon: Icons.delete,
                 onPressed: () {},
               ),
               small: OrionSecondaryButton(
                 label: 'Small',
                 variant: ButtonSizeVariant.small,
+                icon: Icons.chevron_right,
                 onPressed: () {},
               ),
             ),
@@ -67,16 +73,19 @@ class ButtonDemoScreen extends StatelessWidget {
               large: OrionTertiaryButton(
                 label: 'Large',
                 variant: ButtonSizeVariant.large,
+                icon: Icons.star,
                 onPressed: () {},
               ),
               medium: OrionTertiaryButton(
                 label: 'Medium',
                 variant: ButtonSizeVariant.medium,
+                icon: Icons.search,
                 onPressed: () {},
               ),
               small: OrionTertiaryButton(
                 label: 'Small',
                 variant: ButtonSizeVariant.small,
+                icon: Icons.delete,
                 onPressed: () {},
               ),
             ),
@@ -86,16 +95,19 @@ class ButtonDemoScreen extends StatelessWidget {
               large: OrionAccentButton(
                 label: 'Large',
                 variant: ButtonSizeVariant.large,
+                icon: Icons.chevron_right,
                 onPressed: () {},
               ),
               medium: OrionAccentButton(
                 label: 'Medium',
                 variant: ButtonSizeVariant.medium,
+                icon: Icons.star,
                 onPressed: () {},
               ),
               small: OrionAccentButton(
                 label: 'Small',
                 variant: ButtonSizeVariant.small,
+                icon: Icons.search,
                 onPressed: () {},
               ),
             ),
@@ -107,22 +119,22 @@ class ButtonDemoScreen extends StatelessWidget {
               children: [
                 OrionPrimaryButton(
                   label: 'Primary',
-                  icon: const Icon(Icons.add),
+                  icon: Icons.add,
                   onPressed: () {},
                 ),
                 OrionSecondaryButton(
                   label: 'Secondary',
-                  icon: const Icon(Icons.edit),
+                  icon: Icons.edit,
                   onPressed: () {},
                 ),
                 OrionTertiaryButton(
                   label: 'Tertiary',
-                  icon: const Icon(Icons.info),
+                  icon: Icons.info,
                   onPressed: () {},
                 ),
                 OrionAccentButton(
                   label: 'Accent',
-                  icon: const Icon(Icons.star),
+                  icon: Icons.star,
                   onPressed: () {},
                 ),
               ],
@@ -203,9 +215,10 @@ class ButtonDemoScreen extends StatelessWidget {
     required Widget medium,
     required Widget small,
   }) {
-    return Wrap(
-      spacing: 16,
-      runSpacing: 16,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      // spacing: 16,
+      // runSpacing: 16,
       children: [
         large,
         medium,

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static const Color primaryColor = AppColors.surfaceBrand;
-  static const Color secondaryColor = AppColors.surface1;
-  static const Color backgroundColor = AppColors.surfaceBase;
-  static const Color primaryTextColor = AppColors.textBrand;
-  static const Color secondaryTextColor = AppColors.textBody;
+  static const Color primaryColor = OrionColors.surfaceBrand;
+  static const Color secondaryColor = OrionColors.surface1;
+  static const Color backgroundColor = OrionColors.surfaceBase;
+  static const Color primaryTextColor = OrionColors.textBrand;
+  static const Color secondaryTextColor = OrionColors.textBody;
 
   static ThemeData get lightTheme {
     return ThemeData(
@@ -85,8 +85,8 @@ class AppTheme {
   }
 }
 
-class AppColors {
-  AppColors._internal();
+class OrionColors {
+  OrionColors._internal();
 
   // Neutral Colors
   static const Color neutral0 = Color.fromRGBO(255, 255, 255, 1);

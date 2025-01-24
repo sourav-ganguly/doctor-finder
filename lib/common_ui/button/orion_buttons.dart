@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../core/theme/app_theme.dart';
+
 enum ButtonSizeVariant {
   large(
     height: 48.0,
@@ -51,10 +53,10 @@ enum ButtonSizeVariant {
 
 class BaseParentButton extends StatelessWidget {
   final String label;
-  final Widget? icon;
+  final IconData? icon;
   final Color foregroundColor;
   final Color backgroundColor;
-  final Color? hoverColor;
+  final Color? overlayColor;
   final Color? disabledBackgroundColor;
   final Color? disabledForegroundColor;
   final bool hasBorder;
@@ -68,7 +70,7 @@ class BaseParentButton extends StatelessWidget {
     this.icon,
     required this.foregroundColor,
     required this.backgroundColor,
-    this.hoverColor,
+    this.overlayColor,
     this.disabledBackgroundColor,
     this.disabledForegroundColor,
     this.hasBorder = false,
@@ -86,6 +88,7 @@ class BaseParentButton extends StatelessWidget {
         backgroundColor: backgroundColor,
         disabledBackgroundColor: disabledBackgroundColor,
         disabledForegroundColor: disabledForegroundColor,
+        overlayColor: overlayColor,
         minimumSize: Size(variant.width, variant.height),
         padding: EdgeInsets.symmetric(
           horizontal: variant.horizontalPadding,
@@ -110,10 +113,10 @@ class BaseParentButton extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 if (icon != null) ...[
-                  SizedBox(
-                    width: variant.iconSize,
-                    height: variant.iconSize,
-                    child: icon,
+                  Icon(
+                    icon,
+                    size: variant.iconSize,
+                    color: foregroundColor,
                   ),
                   SizedBox(width: variant.gap),
                 ],
@@ -133,7 +136,7 @@ class BaseParentButton extends StatelessWidget {
 // Primary Button - Filled dark button
 class OrionPrimaryButton extends StatelessWidget {
   final String label;
-  final Widget? icon;
+  final IconData? icon;
   final bool isLoading;
   final ButtonSizeVariant variant;
   final VoidCallback? onPressed;
@@ -152,9 +155,9 @@ class OrionPrimaryButton extends StatelessWidget {
     return BaseParentButton(
       label: label,
       icon: icon,
-      foregroundColor: Colors.white,
-      backgroundColor: Colors.black,
-      hoverColor: Colors.black87,
+      foregroundColor: OrionColors.textOnInverse,
+      backgroundColor: OrionColors.shapePrimary,
+      overlayColor: OrionColors.textOnInverse,
       disabledBackgroundColor: Colors.black38,
       disabledForegroundColor: Colors.white70,
       isLoading: isLoading,
@@ -167,7 +170,7 @@ class OrionPrimaryButton extends StatelessWidget {
 // Secondary Button - Outlined button with border
 class OrionSecondaryButton extends StatelessWidget {
   final String label;
-  final Widget? icon;
+  final IconData? icon;
   final bool isLoading;
   final ButtonSizeVariant variant;
   final VoidCallback? onPressed;
@@ -186,9 +189,9 @@ class OrionSecondaryButton extends StatelessWidget {
     return BaseParentButton(
       label: label,
       icon: icon,
-      foregroundColor: Colors.black,
+      foregroundColor: OrionColors.textDefault,
       backgroundColor: Colors.transparent,
-      hoverColor: Colors.black.withOpacity(0.05),
+      overlayColor: OrionColors.textDefault,
       disabledBackgroundColor: Colors.transparent,
       disabledForegroundColor: Colors.black38,
       hasBorder: true,
@@ -202,7 +205,7 @@ class OrionSecondaryButton extends StatelessWidget {
 // Tertiary Button - Text only button
 class OrionTertiaryButton extends StatelessWidget {
   final String label;
-  final Widget? icon;
+  final IconData? icon;
   final bool isLoading;
   final ButtonSizeVariant variant;
   final VoidCallback? onPressed;
@@ -221,11 +224,11 @@ class OrionTertiaryButton extends StatelessWidget {
     return BaseParentButton(
       label: label,
       icon: icon,
-      foregroundColor: Colors.blue,
+      foregroundColor: OrionColors.textBrand,
       backgroundColor: Colors.transparent,
-      hoverColor: Colors.blue.withOpacity(0.05),
+      overlayColor: OrionColors.surfaceBrand.withOpacity(0.05),
       disabledBackgroundColor: Colors.transparent,
-      disabledForegroundColor: Colors.blue.withOpacity(0.5),
+      disabledForegroundColor: OrionColors.surfaceBrand.withOpacity(0.5),
       isLoading: isLoading,
       variant: variant,
       onPressed: onPressed,
@@ -236,7 +239,7 @@ class OrionTertiaryButton extends StatelessWidget {
 // Accent Button - Filled blue button
 class OrionAccentButton extends StatelessWidget {
   final String label;
-  final Widget? icon;
+  final IconData? icon;
   final bool isLoading;
   final ButtonSizeVariant variant;
   final VoidCallback? onPressed;
@@ -255,10 +258,10 @@ class OrionAccentButton extends StatelessWidget {
     return BaseParentButton(
       label: label,
       icon: icon,
-      foregroundColor: Colors.white,
-      backgroundColor: Colors.blue,
-      hoverColor: Colors.blue.shade600,
-      disabledBackgroundColor: Colors.blue.withOpacity(0.5),
+      foregroundColor: OrionColors.textOnBrand,
+      backgroundColor: OrionColors.surfaceBrand,
+      overlayColor: OrionColors.surfaceInverse,
+      disabledBackgroundColor: OrionColors.surfaceBrand.withOpacity(0.5),
       disabledForegroundColor: Colors.white70,
       isLoading: isLoading,
       variant: variant,
