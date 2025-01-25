@@ -31,17 +31,16 @@ class _DoctorFinderScreenState extends ConsumerState<DoctorFinderScreen> {
     final searchQuery = ref.watch(doctorSearchProvider);
     final doctorsAsync = ref.watch(doctorListProvider(searchQuery));
 
-    final theme = Theme.of(context);
-
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
             'Doctor Finder',
-            style: TextStyle(color: Colors.white),
+            // style: TextStyle(color: Colors.white),
           ),
-          backgroundColor: theme.primaryColor,
+          // backgroundColor: theme.primaryColor,
+          automaticallyImplyLeading: false,
         ),
         body: ListView(
           children: [

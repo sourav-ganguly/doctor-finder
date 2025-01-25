@@ -17,7 +17,7 @@ enum ButtonSizeVariant {
     width: 105.0,
     horizontalPadding: 16,
     verticalPadding: 8,
-    gap: 8,
+    gap: 6,
     iconSize: 20,
     fontSize: 14.0,
   ),
@@ -26,7 +26,7 @@ enum ButtonSizeVariant {
     width: 48.0,
     horizontalPadding: 12,
     verticalPadding: 6,
-    gap: 8,
+    gap: 5,
     iconSize: 16,
     fontSize: 12.0,
   ),
@@ -53,7 +53,8 @@ enum ButtonSizeVariant {
 
 class BaseParentButton extends StatelessWidget {
   final String label;
-  final IconData? icon;
+  final IconData? prefixIcon;
+  final IconData? suffixIcon;
   final Color foregroundColor;
   final Color backgroundColor;
   final Color? overlayColor;
@@ -67,7 +68,8 @@ class BaseParentButton extends StatelessWidget {
   const BaseParentButton({
     super.key,
     required this.label,
-    this.icon,
+    this.prefixIcon,
+    this.suffixIcon,
     required this.foregroundColor,
     required this.backgroundColor,
     this.overlayColor,
@@ -112,9 +114,9 @@ class BaseParentButton extends StatelessWidget {
           : Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                if (icon != null) ...[
+                if (prefixIcon != null) ...[
                   Icon(
-                    icon,
+                    prefixIcon,
                     size: variant.iconSize,
                     color: foregroundColor,
                   ),
@@ -127,6 +129,14 @@ class BaseParentButton extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
+                if (suffixIcon != null) ...[
+                  SizedBox(width: variant.gap),
+                  Icon(
+                    suffixIcon,
+                    size: variant.iconSize,
+                    color: foregroundColor,
+                  ),
+                ],
               ],
             ),
     );
@@ -136,7 +146,8 @@ class BaseParentButton extends StatelessWidget {
 // Primary Button - Filled dark button
 class OrionPrimaryButton extends StatelessWidget {
   final String label;
-  final IconData? icon;
+  final IconData? prefixIcon;
+  final IconData? suffixIcon;
   final bool isLoading;
   final ButtonSizeVariant variant;
   final VoidCallback? onPressed;
@@ -144,7 +155,8 @@ class OrionPrimaryButton extends StatelessWidget {
   const OrionPrimaryButton({
     super.key,
     required this.label,
-    this.icon,
+    this.prefixIcon,
+    this.suffixIcon,
     this.isLoading = false,
     this.variant = ButtonSizeVariant.medium,
     this.onPressed,
@@ -154,7 +166,8 @@ class OrionPrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseParentButton(
       label: label,
-      icon: icon,
+      prefixIcon: prefixIcon,
+      suffixIcon: suffixIcon,
       foregroundColor: OrionColors.textOnInverse,
       backgroundColor: OrionColors.shapePrimary,
       overlayColor: OrionColors.textOnInverse,
@@ -170,7 +183,8 @@ class OrionPrimaryButton extends StatelessWidget {
 // Secondary Button - Outlined button with border
 class OrionSecondaryButton extends StatelessWidget {
   final String label;
-  final IconData? icon;
+  final IconData? prefixIcon;
+  final IconData? suffixIcon;
   final bool isLoading;
   final ButtonSizeVariant variant;
   final VoidCallback? onPressed;
@@ -178,7 +192,8 @@ class OrionSecondaryButton extends StatelessWidget {
   const OrionSecondaryButton({
     super.key,
     required this.label,
-    this.icon,
+    this.prefixIcon,
+    this.suffixIcon,
     this.isLoading = false,
     this.variant = ButtonSizeVariant.medium,
     this.onPressed,
@@ -188,7 +203,8 @@ class OrionSecondaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseParentButton(
       label: label,
-      icon: icon,
+      prefixIcon: prefixIcon,
+      suffixIcon: suffixIcon,
       foregroundColor: OrionColors.textDefault,
       backgroundColor: Colors.transparent,
       overlayColor: OrionColors.textDefault,
@@ -205,7 +221,8 @@ class OrionSecondaryButton extends StatelessWidget {
 // Tertiary Button - Text only button
 class OrionTertiaryButton extends StatelessWidget {
   final String label;
-  final IconData? icon;
+  final IconData? prefixIcon;
+  final IconData? suffixIcon;
   final bool isLoading;
   final ButtonSizeVariant variant;
   final VoidCallback? onPressed;
@@ -213,7 +230,8 @@ class OrionTertiaryButton extends StatelessWidget {
   const OrionTertiaryButton({
     super.key,
     required this.label,
-    this.icon,
+    this.prefixIcon,
+    this.suffixIcon,
     this.isLoading = false,
     this.variant = ButtonSizeVariant.medium,
     this.onPressed,
@@ -223,7 +241,8 @@ class OrionTertiaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseParentButton(
       label: label,
-      icon: icon,
+      prefixIcon: prefixIcon,
+      suffixIcon: suffixIcon,
       foregroundColor: OrionColors.textBrand,
       backgroundColor: Colors.transparent,
       overlayColor: OrionColors.surfaceBrand.withOpacity(0.05),
@@ -239,7 +258,8 @@ class OrionTertiaryButton extends StatelessWidget {
 // Accent Button - Filled blue button
 class OrionAccentButton extends StatelessWidget {
   final String label;
-  final IconData? icon;
+  final IconData? prefixIcon;
+  final IconData? suffixIcon;
   final bool isLoading;
   final ButtonSizeVariant variant;
   final VoidCallback? onPressed;
@@ -247,7 +267,8 @@ class OrionAccentButton extends StatelessWidget {
   const OrionAccentButton({
     super.key,
     required this.label,
-    this.icon,
+    this.prefixIcon,
+    this.suffixIcon,
     this.isLoading = false,
     this.variant = ButtonSizeVariant.medium,
     this.onPressed,
@@ -257,7 +278,8 @@ class OrionAccentButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseParentButton(
       label: label,
-      icon: icon,
+      prefixIcon: prefixIcon,
+      suffixIcon: suffixIcon,
       foregroundColor: OrionColors.textOnBrand,
       backgroundColor: OrionColors.surfaceBrand,
       overlayColor: OrionColors.surfaceInverse,

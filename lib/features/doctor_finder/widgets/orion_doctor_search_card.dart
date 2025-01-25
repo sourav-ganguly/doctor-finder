@@ -1,3 +1,4 @@
+import 'package:doctor_finder/common_ui/button/orion_buttons.dart';
 import 'package:flutter/material.dart';
 
 class OrionDoctorSearchCard extends StatelessWidget {
@@ -40,16 +41,21 @@ class OrionDoctorSearchCard extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            TextButton(
+            OrionAccentButton(
+              label: 'Search Doctors',
+              variant: ButtonSizeVariant.large,
               onPressed: onSearchPressed,
-              style: TextButton.styleFrom(
-                backgroundColor: theme.primaryColor,
-                foregroundColor: Colors.white,
-                textStyle: theme.textTheme.titleMedium,
-                padding: const EdgeInsets.symmetric(vertical: 16),
-              ),
-              child: const Text('Search Doctors'),
             ),
+            // TextButton(
+            //   onPressed: onSearchPressed,
+            //   style: TextButton.styleFrom(
+            //     backgroundColor: theme.primaryColor,
+            //     foregroundColor: Colors.white,
+            //     textStyle: theme.textTheme.titleMedium,
+            //     padding: const EdgeInsets.symmetric(vertical: 16),
+            //   ),
+            //   child: const Text('Search Doctors'),
+            // ),
           ],
         ),
       ),

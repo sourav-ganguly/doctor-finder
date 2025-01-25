@@ -11,6 +11,7 @@ class DemoScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('UI Components Demo'),
+        automaticallyImplyLeading: false,
       ),
       body: ListView(
         padding: const EdgeInsets.all(16),

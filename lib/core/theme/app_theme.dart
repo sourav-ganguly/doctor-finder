@@ -14,12 +14,23 @@ class AppTheme {
       scaffoldBackgroundColor: backgroundColor,
       appBarTheme: const AppBarTheme(
         backgroundColor: primaryColor,
+        foregroundColor: secondaryColor,
         elevation: 0,
         centerTitle: true,
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         selectedItemColor: primaryColor,
         unselectedItemColor: secondaryTextColor,
+      ),
+      cardTheme: const CardTheme(
+        color: OrionColors.surfaceCard,
+        elevation: 2,
+        shadowColor: OrionColors.surfaceTransparent20,
+        margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(12)),
+          side: BorderSide(color: OrionColors.neutral100, width: 1),
+        ),
       ),
       textTheme: const TextTheme(
         headlineLarge: TextStyle(
@@ -184,6 +195,7 @@ class OrionColors {
   static const Color surface3 = neutral100;
   static const Color surfaceInverse = neutral900;
   static const Color surfaceBrand = litmus500;
+  static const Color surfaceCard = litmus100;
 
   // Surface Semantic Colors
   static const Color surfaceSuccess = green50;
