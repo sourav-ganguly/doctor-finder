@@ -13,7 +13,7 @@ class OrionDoctorSearchCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    // final theme = Theme.of(context);
 
     return Card(
       margin: const EdgeInsets.all(16),
@@ -22,11 +22,11 @@ class OrionDoctorSearchCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
-              'Find a Doctor',
-              style: theme.textTheme.titleLarge,
-            ),
-            const SizedBox(height: 16),
+            // Text(
+            //   'Find a Doctor',
+            //   style: theme.textTheme.titleLarge,
+            // ),
+            // const SizedBox(height: 16),
             TextField(
               controller: controller,
               maxLines: 5,

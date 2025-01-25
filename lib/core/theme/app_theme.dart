@@ -194,8 +194,8 @@ class OrionColors {
   static const Color surface2 = neutral50;
   static const Color surface3 = neutral100;
   static const Color surfaceInverse = neutral900;
-  static const Color surfaceBrand = litmus500;
-  static const Color surfaceCard = litmus100;
+  static const Color surfaceBrand = Color(0xFF1132EE);
+  static const Color surfaceCard = litmus25;
 
   // Surface Semantic Colors
   static const Color surfaceSuccess = green50;
