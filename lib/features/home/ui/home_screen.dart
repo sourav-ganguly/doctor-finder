@@ -6,10 +6,11 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   static void open(BuildContext context) {
-    Navigator.of(context).push(
+    Navigator.of(context).pushAndRemoveUntil(
       MaterialPageRoute(
         builder: (_) => const HomeScreen(),
       ),
+      (route) => false,
     );
   }
 
