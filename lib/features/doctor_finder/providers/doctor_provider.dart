@@ -1,6 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../models/sample_doctor.dart';
+import '../repositories/doctor_repository.dart';
+
+final doctorRepositoryProvider = Provider((ref) => DoctorRepository());
 
 final doctorSearchProvider = StateProvider<String>((ref) => '');
 
@@ -11,17 +14,12 @@ final doctorListProvider = FutureProvider.autoDispose
     return [];
   }
 
-  // Simulate network delay only for actual searches
-  await Future.delayed(const Duration(seconds: 2));
+  final repository = ref.read(doctorRepositoryProvider);
+  final searchLower = query.toLowerCase();
 
-  // Get sample doctors
-  final doctors = SampleDoctor.getSampleDoctors();
-
-  // Filter doctors based on query
-  return doctors.where((doctor) {
-    final searchLower = query.toLowerCase();
-    return doctor.name.toLowerCase().contains(searchLower) ||
-        doctor.speciality.toLowerCase().contains(searchLower) ||
-        doctor.location.toLowerCase().contains(searchLower);
-  }).toList();
+  try {
+    return await repository.getDoctors(location: searchLower);
+  } catch (e) {
+    throw Exception('Failed to fetch doctors: $e');
+  }
 });
