@@ -33,7 +33,7 @@ final doctorListProvider = FutureProvider.autoDispose
       'Fetching doctors from repository with query: $searchLower',
       name: 'DoctorProvider',
     );
-    final results = await repository.getDoctors(location: searchLower);
+    final results = await repository.getDoctors(search: searchLower);
     developer.log(
       'Successfully retrieved ${results.length} doctors for query: $searchLower',
       name: 'DoctorProvider',
