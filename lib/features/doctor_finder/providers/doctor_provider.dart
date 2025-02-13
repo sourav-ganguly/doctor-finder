@@ -2,7 +2,7 @@ import 'dart:developer' as developer;
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../models/sample_doctor.dart';
+import '../models/doctor_data_model.dart';
 import '../repositories/doctor_repository.dart';
 
 final doctorRepositoryProvider = Provider((ref) => DoctorRepository());
@@ -10,7 +10,7 @@ final doctorRepositoryProvider = Provider((ref) => DoctorRepository());
 final doctorSearchProvider = StateProvider<String>((ref) => '');
 
 final doctorListProvider = FutureProvider.autoDispose
-    .family<List<SampleDoctor>, String>((ref, query) async {
+    .family<List<DoctorDataModel>, String>((ref, query) async {
   developer.log(
     'Doctor search initiated with query: "$query"',
     name: 'DoctorProvider',

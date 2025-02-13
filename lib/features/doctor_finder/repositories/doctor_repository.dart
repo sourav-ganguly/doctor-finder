@@ -2,7 +2,7 @@ import 'dart:developer' as developer;
 
 import 'package:dio/dio.dart';
 
-import '../models/sample_doctor.dart';
+import '../models/doctor_data_model.dart';
 
 class DoctorRepository {
   static const String _baseUrl = 'https://doc-finder-backend.onrender.com';
@@ -21,7 +21,7 @@ class DoctorRepository {
         }));
   }
 
-  Future<List<SampleDoctor>> getDoctors({
+  Future<List<DoctorDataModel>> getDoctors({
     required String location,
     int skip = 0,
     int limit = 10,
@@ -44,7 +44,7 @@ class DoctorRepository {
       if (response.statusCode == 200) {
         final List<dynamic> jsonList = response.data;
         final doctors =
-            jsonList.map((json) => SampleDoctor.fromJson(json)).toList();
+            jsonList.map((json) => DoctorDataModel.fromJson(json)).toList();
         developer.log(
           'Successfully fetched ${doctors.length} doctors',
           name: 'DoctorRepository',
