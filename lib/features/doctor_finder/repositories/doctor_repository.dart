@@ -22,13 +22,13 @@ class DoctorRepository {
   }
 
   Future<List<DoctorDataModel>> getDoctors({
-    required String location,
+    required String search,
     int skip = 0,
     int limit = 10,
   }) async {
     try {
       developer.log(
-        'Fetching doctors with location: $location, skip: $skip, limit: $limit',
+        'Fetching doctors with search: $search, skip: $skip, limit: $limit',
         name: 'DoctorRepository',
       );
 
@@ -37,7 +37,7 @@ class DoctorRepository {
         queryParameters: {
           'skip': skip,
           'limit': limit,
-          'location': location,
+          'search': search,
         },
       );
 
