@@ -17,6 +17,18 @@ class _DoctorFinderScreenState extends ConsumerState<DoctorFinderScreen> {
   final TextEditingController _searchController = TextEditingController();
 
   @override
+  void initState() {
+    super.initState();
+    // Initialize controller with current search query
+    _searchController.text = ref.read(doctorSearchProvider);
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
+
+  @override
   void dispose() {
     _searchController.dispose();
     super.dispose();

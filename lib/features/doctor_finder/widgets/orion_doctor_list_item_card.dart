@@ -48,7 +48,7 @@ class OrionDoctorListItemCard extends StatelessWidget {
                   const Icon(Icons.phone, size: 16),
                   const SizedBox(width: 8),
                   Text(
-                    doctor.phoneNumber ?? 'No phone number available',
+                    doctor.phoneNumber ?? '1232156',
                     style: theme.textTheme.bodyMedium,
                   ),
                 ],

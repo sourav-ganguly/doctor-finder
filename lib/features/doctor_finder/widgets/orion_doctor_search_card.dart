@@ -22,11 +22,6 @@ class OrionDoctorSearchCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Text(
-            //   'Find a Doctor',
-            //   style: theme.textTheme.titleLarge,
-            // ),
-            // const SizedBox(height: 16),
             TextField(
               controller: controller,
               maxLines: 5,
@@ -46,16 +41,6 @@ class OrionDoctorSearchCard extends StatelessWidget {
               variant: ButtonSizeVariant.large,
               onPressed: onSearchPressed,
             ),
-            // TextButton(
-            //   onPressed: onSearchPressed,
-            //   style: TextButton.styleFrom(
-            //     backgroundColor: theme.primaryColor,
-            //     foregroundColor: Colors.white,
-            //     textStyle: theme.textTheme.titleMedium,
-            //     padding: const EdgeInsets.symmetric(vertical: 16),
-            //   ),
-            //   child: const Text('Search Doctors'),
-            // ),
           ],
         ),
       ),
