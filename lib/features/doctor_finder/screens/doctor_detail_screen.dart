@@ -35,13 +35,13 @@ class DoctorDetailScreen extends StatelessWidget {
             ),
             _buildInfoSection(
               context,
-              title: 'Location',
-              content: doctor.location,
+              title: 'Educational Degree',
+              content: doctor.educationalDegree,
             ),
             _buildInfoSection(
               context,
-              title: 'Educational Degree',
-              content: doctor.educationalDegree,
+              title: 'Location',
+              content: doctor.location,
             ),
             _buildInfoSection(
               context,
