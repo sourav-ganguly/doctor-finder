@@ -11,7 +11,13 @@ class DoctorRepository {
   DoctorRepository()
       : _dio = Dio(BaseOptions(
           baseUrl: _baseUrl,
-          headers: {'accept': 'application/json'},
+          headers: {
+            'accept': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+            'Access-Control-Allow-Headers':
+                'Origin, Content-Type, X-Auth-Token',
+          },
         )) {
     _dio.interceptors.add(LogInterceptor(
         requestBody: true,
