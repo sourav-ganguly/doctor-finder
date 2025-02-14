@@ -29,14 +29,11 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: AppTheme.backgroundColor,
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            Image.asset('assets/app_logo_with_text.png'),
             const CircularProgressIndicator(),
-            const SizedBox(height: 20),
-            Text(
-              'Doctor Finder 👩🏻‍⚕️',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            const SizedBox(height: 10),
           ],
         ),
       ),
