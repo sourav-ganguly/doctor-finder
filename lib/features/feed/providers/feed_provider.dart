@@ -69,14 +69,27 @@ class FeedProvider {
     "Love yourself! Self-compassion reduces anxiety and depression"
   ];
 
+  List<String>? _cachedFacts;
+
   List<String> getRandomHealthFacts() {
+    // Return cached facts if they exist
+    if (_cachedFacts != null) {
+      return _cachedFacts!;
+    }
+
     final random = Random();
     final Set<int> selectedIndexes = {};
 
-    while (selectedIndexes.length < 5) {
+    while (selectedIndexes.length < 10) {
       selectedIndexes.add(random.nextInt(_healthFacts.length));
     }
 
-    return selectedIndexes.map((index) => _healthFacts[index]).toList();
+    // Cache the results before returning
+    _cachedFacts = selectedIndexes.map((index) => _healthFacts[index]).toList();
+    return _cachedFacts!;
+  }
+
+  void clearCache() {
+    _cachedFacts = null;
   }
 }

@@ -25,7 +25,7 @@ class HealthFactCard extends StatelessWidget {
                 ),
                 SizedBox(width: 8),
                 Text(
-                  'Did you know?',
+                  'Here is your daily health fact',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
