@@ -13,7 +13,7 @@ class FeedScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Health Facts Feed'),
+        title: const Text('Health Feed'),
       ),
       body: healthFactsAsync.when(
         loading: () => const Center(
