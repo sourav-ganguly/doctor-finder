@@ -1,11 +1,11 @@
-import 'package:doctor_finder/features/demo_screen/screens/button_demo_screen.dart';
-import 'package:doctor_finder/features/demo_screen/screens/sliver_appbar_screen.dart';
+import 'package:doctor_finder/features/my_profile/screens/button_demo_screen.dart';
+import 'package:doctor_finder/features/my_profile/screens/sliver_appbar_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/demo_list_item.dart';
 
-class DemoScreen extends StatelessWidget {
-  const DemoScreen({super.key});
+class MyProfileScreen extends StatelessWidget {
+  const MyProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class DemoScreen extends StatelessWidget {
               child: Text(
                 'made with ❤️ by xyz',
                 style: TextStyle(
-                  color: Colors.grey[400],
+                  color: Colors.grey[300],
                   fontSize: 12,
                 ),
               ),
@@ -48,7 +48,7 @@ class DemoScreen extends StatelessWidget {
                 },
               ),
               DemoListItem(
-                title: 'My Reviews',
+                title: 'My Reviews  ',
                 subtitle: 'View my reviews',
                 onTap: () {
                   ButtonDemoScreen.open(context);
