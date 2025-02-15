@@ -37,15 +37,15 @@ class _HomeScreenState extends State<HomeScreen> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.medical_services),
-            label: 'Find a doc',
+            label: 'Search',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.list),
-            label: 'Screen 2',
+            label: 'Feed',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Demo',
+            label: 'Me',
           ),
         ],
       ),
