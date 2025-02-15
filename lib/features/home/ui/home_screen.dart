@@ -1,5 +1,6 @@
 import 'package:doctor_finder/features/demo_screen/screens/demo_screen.dart';
 import 'package:doctor_finder/features/doctor_finder/screens/doctor_finder_screen.dart';
+import 'package:doctor_finder/features/feed/screens/feed_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> _screens = [
     const DoctorFinderScreen(),
-    const Center(child: Text('Screen 2')),
+    const FeedScreen(),
     const DemoScreen(),
   ];
 
