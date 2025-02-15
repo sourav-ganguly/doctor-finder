@@ -66,6 +66,18 @@ A Flutter application for finding and connecting with doctors.
      flutter run
      ```
 
+### 4. Build and Deploy to Firebase Web Hosting
+
+   ```bash
+   # Build web version
+   flutter build web
+   
+   # Deploy to Firebase
+   firebase deploy
+   ```
+
+After successful deployment, Firebase will provide you with a hosting URL where your app is live.
+
 ## Troubleshooting
 
 If you encounter any issues:

@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 class SliverAppbarScreen extends StatelessWidget {
   final List<Color> randomColors = Colors.primaries;
 
-  const SliverAppbarScreen({super.key});
+  const SliverAppbarScreen({
+    super.key,
+  });
 
   static void open(BuildContext context) {
     Navigator.of(context).push(
@@ -19,7 +21,7 @@ class SliverAppbarScreen extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          const OrionHomeAppBar(),
+          const OrionHomeAppBar(showBackButton: true),
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {

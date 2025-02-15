@@ -21,6 +21,7 @@ class AppTheme {
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         selectedItemColor: primaryColor,
         unselectedItemColor: secondaryTextColor,
+        backgroundColor: OrionColors.surfaceBase,
       ),
       cardTheme: const CardTheme(
         color: OrionColors.surfaceCard,

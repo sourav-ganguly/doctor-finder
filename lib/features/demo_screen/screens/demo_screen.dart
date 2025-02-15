@@ -11,22 +11,36 @@ class DemoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('UI Components Demo'),
+        title: const Text('My Profile'),
         automaticallyImplyLeading: false,
       ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
           DemoListItem(
-            title: 'Button Demo',
-            subtitle: 'Various button styles and sizes',
+            title: 'My Appointments',
+            subtitle: 'View my appointments',
             onTap: () {
               ButtonDemoScreen.open(context);
             },
           ),
           DemoListItem(
-            title: 'Sliver Appbar Demo',
-            subtitle: 'Sliver appbar demo screen',
+            title: 'My Doctors',
+            subtitle: 'View favorite doctors',
+            onTap: () {
+              ButtonDemoScreen.open(context);
+            },
+          ),
+          DemoListItem(
+            title: 'My Reviews',
+            subtitle: 'View my reviews',
+            onTap: () {
+              ButtonDemoScreen.open(context);
+            },
+          ),
+          DemoListItem(
+            title: 'Settings',
+            subtitle: 'Manage my settings',
             onTap: () {
               SliverAppbarScreen.open(context);
             },

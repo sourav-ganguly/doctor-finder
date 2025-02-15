@@ -13,8 +13,6 @@ class OrionDoctorSearchCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final theme = Theme.of(context);
-
     return Card(
       margin: const EdgeInsets.all(16),
       child: Padding(
@@ -26,8 +24,7 @@ class OrionDoctorSearchCard extends StatelessWidget {
               controller: controller,
               maxLines: 5,
               decoration: InputDecoration(
-                hintText:
-                    'Describe your symptoms or the type of doctor you\'re looking for...',
+                hintText: 'Search doctors by name or specialization...',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),
