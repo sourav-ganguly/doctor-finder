@@ -24,7 +24,8 @@ class OrionDoctorSearchCard extends StatelessWidget {
               controller: controller,
               maxLines: 5,
               decoration: InputDecoration(
-                hintText: 'Tell me a bit about your symptoms...',
+                hintText:
+                    'Describe your symptoms, I\'ll find the right doctor for you...',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),
