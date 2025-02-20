@@ -11,6 +11,15 @@ class OrionDoctorListItemCard extends StatelessWidget {
     required this.doctor,
   });
 
+  String _doctorLocation() {
+    if (doctor.clinics.isNotEmpty) {
+      return doctor.clinics.first;
+    } else if (doctor.chambers.isNotEmpty) {
+      return doctor.chambers.first;
+    }
+    return doctor.location;
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -60,7 +69,7 @@ class OrionDoctorListItemCard extends StatelessWidget {
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
-                      doctor.location,
+                      _doctorLocation(),
                       style: theme.textTheme.bodyMedium,
                     ),
                   ),
