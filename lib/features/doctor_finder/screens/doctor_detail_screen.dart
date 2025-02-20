@@ -10,6 +10,15 @@ class DoctorDetailScreen extends StatelessWidget {
     required this.doctor,
   });
 
+  String _doctorLocation() {
+    if (doctor.clinics.isNotEmpty) {
+      return doctor.clinics.first;
+    } else if (doctor.chambers.isNotEmpty) {
+      return doctor.chambers.first;
+    }
+    return doctor.location;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +50,7 @@ class DoctorDetailScreen extends StatelessWidget {
             _buildInfoSection(
               context,
               title: 'Location',
-              content: doctor.location,
+              content: _doctorLocation(),
             ),
             _buildInfoSection(
               context,
