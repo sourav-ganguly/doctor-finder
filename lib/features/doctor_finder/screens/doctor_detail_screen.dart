@@ -39,6 +39,11 @@ class DoctorDetailScreen extends StatelessWidget {
             const SizedBox(height: 16),
             _buildInfoSection(
               context,
+              title: 'Title',
+              content: doctor.title,
+            ),
+            _buildInfoSection(
+              context,
               title: 'Speciality',
               content: doctor.speciality,
             ),

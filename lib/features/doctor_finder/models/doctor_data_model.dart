@@ -8,6 +8,7 @@ class DoctorDataModel {
   final String description;
   final List<String> clinics;
   final List<String> chambers;
+  final String title;
 
   DoctorDataModel({
     required this.name,
@@ -19,6 +20,7 @@ class DoctorDataModel {
     required this.description,
     required this.clinics,
     required this.chambers,
+    required this.title,
   });
 
   factory DoctorDataModel.fromJson(Map<String, dynamic> json) {
@@ -32,6 +34,7 @@ class DoctorDataModel {
       description: json['description'] as String,
       clinics: List<String>.from(json['clinics'] ?? []),
       chambers: List<String>.from(json['chambers'] ?? []),
+      title: json['title'] as String,
     );
   }
 }
