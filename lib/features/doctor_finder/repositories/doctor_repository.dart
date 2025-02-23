@@ -30,7 +30,7 @@ class DoctorRepository {
   Future<List<DoctorDataModel>> getDoctors({
     required String search,
     int skip = 0,
-    int limit = 20,
+    int limit = 30,
   }) async {
     try {
       developer.log(

@@ -46,7 +46,7 @@ class OrionDoctorListItemCard extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                doctor.speciality,
+                doctor.title,
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: theme.primaryColor,
                 ),
