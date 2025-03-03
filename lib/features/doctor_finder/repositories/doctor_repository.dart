@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 import '../models/doctor_data_model.dart';
 
 class DoctorRepository {
-  static const String _baseUrl = 'https://doc-finder-backend.onrender.com';
+  static const String _baseUrl = 'https://doc-finder-backend.vercel.app';
   final Dio _dio;
 
   DoctorRepository()
