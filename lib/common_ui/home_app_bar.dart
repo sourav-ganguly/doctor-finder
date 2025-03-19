@@ -30,7 +30,7 @@ class OrionHomeAppBar extends StatelessWidget {
           : null,
       flexibleSpace: FlexibleSpaceBar(
         title: Image.asset(
-          'assets/logo_appbar.png',
+          'assets/find_the_doc.png',
           width: 180,
           height: 45,
         ),
