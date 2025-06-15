@@ -1,3 +1,4 @@
+import 'package:doctor_finder/features/provider_learning/provider_learning_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/theme/app_theme.dart';
@@ -18,9 +19,9 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   _navigateToHome() async {
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 0));
     if (!mounted) return;
-    HomeScreen.open(context);
+    ProviderLearningScreen.open(context);
   }
 
   @override
