@@ -6,7 +6,6 @@ import 'package:intl/intl.dart' as intl;
 
 
 
-
 final simpleProvider = Provider<String>((ref) {
   return 'A simple provider to get a value!';
 });
@@ -88,4 +87,44 @@ final sampleStreamProvider = StreamProvider<String>((ref) {
       return 'Hello World! $count';
     }
   });
+});
+
+
+// auto dispose state provider
+final autoDisposeStateProvider = StateProvider.autoDispose<int>((ref) {
+    ref.onDispose(() {
+      print('autoDisposeStateProvider disposed');
+    });
+  return 0;
+});
+
+final nonAutoDisposeStateProvider = StateProvider<int>((ref) {
+    ref.onDispose(() {
+      print('nonAutoDisposeStateProvider disposed');
+    });
+  return 0;
+});
+
+// notifier
+
+class CounterNotifier extends AutoDisposeNotifier<int> {
+  @override
+  int build() {
+
+    ref.onDispose(() {
+      print('counterNotifierProvider disposed');
+    });
+
+    return 0;
+  }
+
+  void increment() {
+    state++;
+  }
+}
+
+final counterNotifierProvider = NotifierProvider.autoDispose<CounterNotifier, int>(() { 
+
+    // return the notifier
+  return CounterNotifier();
 });

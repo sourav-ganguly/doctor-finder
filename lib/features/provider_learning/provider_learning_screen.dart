@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'hello_world_provider.dart';
+import 'auto_dispose_example_detail_view.dart';
 
 class ProviderLearningScreen extends ConsumerWidget {
   const ProviderLearningScreen({super.key});
@@ -35,6 +36,8 @@ class ProviderLearningScreen extends ConsumerWidget {
           _FutureProviderExampleView(),
           SizedBox(height: 20),
           _StreamProviderExampleView(),
+          SizedBox(height: 20),
+          _AutoDisposeExampleView(),
           SizedBox(height: 20),
         ],
       ),
@@ -270,6 +273,48 @@ class _StreamProviderExampleView extends ConsumerWidget {
               loading: () => const CircularProgressIndicator(),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _AutoDisposeExampleView extends ConsumerWidget {
+  const _AutoDisposeExampleView();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Card(
+      child: InkWell(
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => const AutoDisposeExampleDetailView(),
+            ),
+          );
+        },
+        child: const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              Text(
+                'AutoDispose Example',
+                style: TextStyle(fontSize: 20),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 20),
+              Text(
+                'Tap to navigate to detail view',
+                style: TextStyle(fontSize: 16),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 10),
+              Icon(
+                Icons.arrow_forward_ios,
+                size: 20,
+              ),
+            ],
+          ),
         ),
       ),
     );
